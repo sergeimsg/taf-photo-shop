@@ -1,15 +1,17 @@
 package by.photoshop.smelnik.ui_tests;
 
 import by.photoshop.smelnik.pageObjects.HomePage;
+import by.photoshop.smelnik.pageObjects.LoginPage;
 import org.junit.jupiter.api.Test;
 
-public class LoginTest {
+public class LoginTest extends BaseTest{
 
 
     @Test
     public void startHomePage(){
-        HomePage homePage = new HomePage();
-        homePage.startHomePage();
+        LoginPage loginPage = new LoginPage();
+        loginPage.checkWrongLogin();
+
     }
 
 }

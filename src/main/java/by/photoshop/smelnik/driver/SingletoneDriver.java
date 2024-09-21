@@ -17,7 +17,7 @@ public class SingletoneDriver {
         return driver;
     }
 
-    public void closeDriver(){
+    public static void closeDriver(){
         driver.quit();
         driver = null;
     }
