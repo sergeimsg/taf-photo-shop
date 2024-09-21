@@ -3,7 +3,9 @@ package by.photoshop.smelnik.ui_tests;
 import by.photoshop.smelnik.driver.SingletoneDriver;
 import by.photoshop.smelnik.pageObjects.HomePage;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 
 public class BaseTest {
@@ -13,14 +15,14 @@ public class BaseTest {
         this.driver = SingletoneDriver.getDriver();
     }
 
-    @BeforeAll
-    public static void startPage(){
+    @BeforeEach
+    public void startPage(){
         HomePage homePage = new HomePage();
         homePage.startHomePage();
     }
 
-    @AfterAll
-    public static void tearDown(){
+    @AfterEach
+    public void tearDown(){
         SingletoneDriver.closeDriver();
     }
 
