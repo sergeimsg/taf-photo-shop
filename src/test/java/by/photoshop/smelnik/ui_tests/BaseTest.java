@@ -2,9 +2,7 @@ package by.photoshop.smelnik.ui_tests;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
 import by.photoshop.smelnik.pageObjects.HomePage;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     private WebDriver driver;
-    private final String BASE_URL = "https://photo-shop.by/";
+    public static final String BASE_URL = "https://photo-shop.by/";
 
     public HomePage() {
         this.driver = SingletoneDriver.getDriver();

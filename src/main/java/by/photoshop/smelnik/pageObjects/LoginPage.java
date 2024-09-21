@@ -54,6 +54,12 @@ public class LoginPage {
     }
 
     public String returnURl(){
-         return driver.getCurrentUrl();
+        return driver.getCurrentUrl();
+    }
+
+    public String returnLoginName(){
+        By loginNameXPath = By.xpath(LoginObjectXpath.CHECK_LOGIN_XPATH);
+        WebElement loginNameWebElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(loginNameXPath));
+        return loginNameWebElement.getText();
     }
 }

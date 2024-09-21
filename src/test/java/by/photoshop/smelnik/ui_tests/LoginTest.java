@@ -1,9 +1,6 @@
 package by.photoshop.smelnik.ui_tests;
 
-import by.photoshop.smelnik.pageObjects.CookiePage;
-import by.photoshop.smelnik.pageObjects.LoginPage;
-import by.photoshop.smelnik.pageObjects.PopUpPage;
-import by.photoshop.smelnik.utils.Waiter;
+import by.photoshop.smelnik.pageObjects.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +18,7 @@ public class LoginTest extends BaseTest{
         loginPage.enterRandomLogin();
         loginPage.enterRandomPassword();
         loginPage.submitLoginForm();
-        Assertions.assertEquals("https://photo-shop.by/", loginPage.returnURl());
-
+        Assertions.assertEquals(HomePage.BASE_URL, loginPage.returnURl());
     }
 
     @Test
@@ -36,7 +32,8 @@ public class LoginTest extends BaseTest{
         loginPage.enterRightLogin();
         loginPage.enterRightPassword();
         loginPage.submitLoginForm();
-        Assertions.assertEquals("https://photo-shop.by/", loginPage.returnURl());
+        Assertions.assertEquals(HomePage.BASE_URL, loginPage.returnURl());
+        Assertions.assertEquals(LoginObjectXpath.RIGHT_LOGIN, loginPage.returnLoginName());
     }
 
 }
