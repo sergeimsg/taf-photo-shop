@@ -1,4 +1,4 @@
-package by.photoshop.smelnik.api_tests.utils;
+package by.photoshop.smelnik.api.responsLogin;
 
 public class Names {
     public static final String BASE_URL = "https://photo-shop.by";

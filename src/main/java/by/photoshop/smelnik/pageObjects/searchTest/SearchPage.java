@@ -1,7 +1,6 @@
 package by.photoshop.smelnik.pageObjects.searchTest;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
-import by.photoshop.smelnik.utils.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;

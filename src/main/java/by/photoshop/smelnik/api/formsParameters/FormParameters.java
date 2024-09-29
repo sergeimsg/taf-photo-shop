@@ -1,4 +1,4 @@
-package by.photoshop.smelnik.api_tests.utils.forms;
+package by.photoshop.smelnik.api.formsParameters;
 import java.util.LinkedHashMap;
 import java.util.Map;
 

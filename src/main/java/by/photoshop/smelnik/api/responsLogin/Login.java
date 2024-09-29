@@ -1,4 +1,4 @@
-package by.photoshop.smelnik.api_tests.utils;
+package by.photoshop.smelnik.api.responsLogin;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Header;

@@ -1,9 +1,9 @@
 package by.photoshop.smelnik.api_tests;
 
-import by.photoshop.smelnik.api_tests.utils.Login;
-import by.photoshop.smelnik.api_tests.utils.Names;
-import by.photoshop.smelnik.api_tests.utils.Responses;
-import by.photoshop.smelnik.api_tests.utils.forms.Parameters;
+import by.photoshop.smelnik.api.responsLogin.Login;
+import by.photoshop.smelnik.api.responsLogin.Names;
+import by.photoshop.smelnik.api.responsLogin.Responses;
+import by.photoshop.smelnik.api.formsParameters.Parameters;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;

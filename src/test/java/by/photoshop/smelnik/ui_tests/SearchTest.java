@@ -1,8 +1,6 @@
 package by.photoshop.smelnik.ui_tests;
 
 import by.photoshop.smelnik.pageObjects.baseSettings.CookiePage;
-import by.photoshop.smelnik.pageObjects.baseSettings.HomePage;
-import by.photoshop.smelnik.pageObjects.baseSettings.LoginPage;
 import by.photoshop.smelnik.pageObjects.baseSettings.PopUpPage;
 import by.photoshop.smelnik.pageObjects.searchTest.SearchPage;
 import by.photoshop.smelnik.pageObjects.searchTest.SearchQueriesNames;
