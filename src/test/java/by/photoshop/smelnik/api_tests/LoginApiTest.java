@@ -4,7 +4,6 @@ import by.photoshop.smelnik.api_tests.utils.Login;
 import by.photoshop.smelnik.api_tests.utils.Names;
 import by.photoshop.smelnik.api_tests.utils.Responses;
 import by.photoshop.smelnik.api_tests.utils.forms.Parameters;
-import by.photoshop.smelnik.pageObjects.HomePage;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
@@ -16,18 +15,9 @@ import static org.hamcrest.Matchers.equalTo;
 public class LoginApiTest extends BaseApiTest {
 
 
-    @Test
-    public void testResponse(){
-
-        when()
-                .get(HomePage.BASE_URL)
-                .then()
-                .log().all()
-                .statusCode(200);
-    }
 
     @Test
-    public void testAuthentificate(){
+    public void testSimpleAuthentificate(){
         RestAssured.baseURI = Names.BASE_URL;
         Response response = given()
                 .formParams(Parameters.getCorrectLoginData())

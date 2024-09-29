@@ -1,6 +1,6 @@
 package by.photoshop.smelnik.ui_tests;
 
-import by.photoshop.smelnik.pageObjects.*;
+import by.photoshop.smelnik.pageObjects.baseSettings.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,7 +1,7 @@
 package by.photoshop.smelnik.ui_tests;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
-import by.photoshop.smelnik.pageObjects.HomePage;
+import by.photoshop.smelnik.pageObjects.baseSettings.HomePage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;

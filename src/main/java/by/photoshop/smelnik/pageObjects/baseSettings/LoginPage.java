@@ -1,7 +1,7 @@
-package by.photoshop.smelnik.pageObjects;
+package by.photoshop.smelnik.pageObjects.baseSettings;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
-import com.github.javafaker.Faker;
+import by.photoshop.smelnik.pageObjects.randomDataForTest.DataForTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,12 +12,10 @@ import java.time.Duration;
 
 public class LoginPage {
     private WebDriver driver;
-    private Faker faker;
     WebDriverWait webDriverWait;
 
     public LoginPage() {
         this.driver = SingletoneDriver.getDriver();
-        faker = new Faker();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
@@ -29,7 +27,7 @@ public class LoginPage {
 
     public void enterRandomLogin(){
         By loginRandomNameXpath = By.xpath(LoginObjectXpath.INPUT_LOGIN_XPATH);
-        driver.findElement(loginRandomNameXpath).sendKeys(faker.internet().emailAddress());
+        driver.findElement(loginRandomNameXpath).sendKeys(DataForTest.getEmail());
     }
 
     public void enterRightLogin(){
@@ -45,7 +43,7 @@ public class LoginPage {
 
     public void enterRandomPassword(){
         By passwordXpath = By.xpath(LoginObjectXpath.INPUT_PASSWORD_XPATH);
-        driver.findElement(passwordXpath).sendKeys(faker.internet().password(6, 10));
+        driver.findElement(passwordXpath).sendKeys(DataForTest.getPassword());
     }
 
     public void submitLoginForm(){

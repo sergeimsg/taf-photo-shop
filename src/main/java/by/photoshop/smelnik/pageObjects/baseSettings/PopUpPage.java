@@ -1,4 +1,4 @@
-package by.photoshop.smelnik.pageObjects;
+package by.photoshop.smelnik.pageObjects.baseSettings;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
 import by.photoshop.smelnik.utils.Waiter;

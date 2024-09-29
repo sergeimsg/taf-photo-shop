@@ -1,4 +1,4 @@
-package by.photoshop.smelnik.pageObjects;
+package by.photoshop.smelnik.pageObjects.baseSettings;
 
 public class LoginObjectXpath {
     public static final String LOGIN_XPATH = "//div/span/span[@class='ok-auth__info']";
