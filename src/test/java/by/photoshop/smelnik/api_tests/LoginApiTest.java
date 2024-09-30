@@ -22,7 +22,7 @@ public class LoginApiTest extends BaseApiTest {
         Response response = given()
                 .formParams(Parameters.getRandomEmailPasword())
                 .formParam("_token", csrfToken).when().post(ApiPathes.URI_PATH_USER_AUTHANTIFICATION);
-        Assertions.assertEquals(response.statusCode(), HttpStatus.SC_MOVED_TEMPORARILY);
+        Assertions.assertEquals(HttpStatus.SC_MOVED_TEMPORARILY, response.statusCode(), "Should be redirected");
     }
 
     @Test
@@ -54,7 +54,7 @@ public class LoginApiTest extends BaseApiTest {
                         .when()
                         .get(ApiPathes.BASE_URL);
         int statusCode = Responses.getStatusCode(resp2);
-        Assertions.assertEquals(statusCode, HttpStatus.SC_OK);
+        Assertions.assertEquals(HttpStatus.SC_OK, statusCode, "Should be 200 code" );
     }
 
     @Test
@@ -64,7 +64,7 @@ public class LoginApiTest extends BaseApiTest {
         response.then()
                 .body("auth_msg", equalTo(""));
         int statusCode = response.statusCode();
-        Assertions.assertEquals(statusCode, HttpStatus.SC_OK);
+        Assertions.assertEquals(HttpStatus.SC_OK, statusCode);
     }
 
     @Test
@@ -75,6 +75,6 @@ public class LoginApiTest extends BaseApiTest {
                 .cookies(cookies)
                 .when()
                 .get(ApiPathes.URI_PATH_USER_AUTHANTIFICATION_ADD + ApiPathes.URI_PATH_USER_AUTHANTIFICATION_ADD_ANT_T);
-        Assertions.assertEquals(response.statusCode(), HttpStatus.SC_NOT_FOUND);
+        Assertions.assertEquals( HttpStatus.SC_NOT_FOUND, response.statusCode(), "Not Found");
     }
 }
