@@ -13,8 +13,8 @@ public class SingletoneDriver {
     public static WebDriver getDriver() {
         if (driver == null) {
             driver = new ChromeDriver();
+            driver.manage().window().maximize();
         }
-        driver.manage().window().maximize();
         return driver;
     }
 

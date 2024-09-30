@@ -17,7 +17,7 @@ public class LoginPage {
 
     public LoginPage() {
         this.driver = SingletoneDriver.getDriver();
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(8));
     }
 
     public void openLoginWindow() {

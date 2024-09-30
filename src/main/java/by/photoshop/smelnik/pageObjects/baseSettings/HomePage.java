@@ -15,6 +15,4 @@ public class HomePage {
     public void startHomePage() {
         driver.get(BASE_URL);
     }
-
-
 }
