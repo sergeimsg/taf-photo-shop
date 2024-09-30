@@ -28,6 +28,4 @@ public class Parameters {
         return new FormParameters().setLogin("login").setType("email_password").setEmail("")
                 .setPassword(faker.internet().password(5, 10)).build();
     }
-
-
 }

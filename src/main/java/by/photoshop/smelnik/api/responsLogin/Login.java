@@ -15,12 +15,12 @@ public class Login {
     }
 
     public Response performGetRequest() {
-        RestAssured.baseURI = Names.BASE_URL;
+        RestAssured.baseURI = ApiPathes.BASE_URL;
         Response response = RestAssured
                 .given()
                 .headers(getHeaders())
                 .when()
-                .get(Names.URI_PATH);
+                .get(ApiPathes.URI_PATH);
         return response;
     }
 }

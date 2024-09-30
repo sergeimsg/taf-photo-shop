@@ -19,7 +19,7 @@ public class SearchPage {
 
     public void enterSearchQuery() {
         By searchQueryNameXpath = By.xpath(SearchQueriesXPath.SEARCH_FIELD_BASE_PAGE);
-        driver.findElement(searchQueryNameXpath).sendKeys(SearchQueriesNames.SEARCH_QUERY1);
+        driver.findElement(searchQueryNameXpath).sendKeys(SearchQueries.SEARCH_QUERY1);
     }
 
     public void submitSearchQuery() {

@@ -6,7 +6,6 @@ import java.util.Map;
 public class FormParameters {
     private Map<String, Object> formParams = new LinkedHashMap<>();
 
-
     public FormParameters setLogin(Object login) {
         formParams.put("login", login);
         return this;

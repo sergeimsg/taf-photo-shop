@@ -3,7 +3,7 @@ package by.photoshop.smelnik.ui_tests;
 import by.photoshop.smelnik.pageObjects.baseSettings.CookiePage;
 import by.photoshop.smelnik.pageObjects.baseSettings.PopUpPage;
 import by.photoshop.smelnik.pageObjects.searchTest.SearchPage;
-import by.photoshop.smelnik.pageObjects.searchTest.SearchQueriesNames;
+import by.photoshop.smelnik.pageObjects.searchTest.SearchQueries;
 import by.photoshop.smelnik.utils.Waiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -20,6 +20,6 @@ public class SearchTest extends BaseTest {
         searchPage.enterSearchQuery();
         searchPage.submitSearchQuery();
         Waiter.wait(4);
-        Assertions.assertEquals(SearchQueriesNames.SEARCH_RESULT1, searchPage.findSearchResult1());
+        Assertions.assertEquals(SearchQueries.SEARCH_RESULT1, searchPage.findSearchResult1());
     }
 }

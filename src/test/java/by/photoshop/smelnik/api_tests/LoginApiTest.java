@@ -1,11 +1,12 @@
 package by.photoshop.smelnik.api_tests;
 
 import by.photoshop.smelnik.api.responsLogin.Login;
-import by.photoshop.smelnik.api.responsLogin.Names;
+import by.photoshop.smelnik.api.responsLogin.ApiPathes;
 import by.photoshop.smelnik.api.responsLogin.Responses;
 import by.photoshop.smelnik.api.formsParameters.Parameters;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -17,19 +18,19 @@ public class LoginApiTest extends BaseApiTest {
 
     @Test
     public void testSimpleAuthentificate() {
-        RestAssured.baseURI = Names.BASE_URL;
+        RestAssured.baseURI = ApiPathes.BASE_URL;
         Response response = given()
                 .formParams(Parameters.getRandomEmailPasword())
-                .formParam("_token", csrfToken).when().post(Names.URI_PATH_USER_AUTHANTIFICATION);
-        Assertions.assertEquals(response.statusCode(), Names.REDIRECT_CODE);
+                .formParam("_token", csrfToken).when().post(ApiPathes.URI_PATH_USER_AUTHANTIFICATION);
+        Assertions.assertEquals(response.statusCode(), HttpStatus.SC_MOVED_TEMPORARILY);
     }
 
     @Test
     public void testGetUserDataCheckJSON() {
         Response response = given()
-                .baseUri(Names.BASE_URL)
+                .baseUri(ApiPathes.BASE_URL)
                 .when()
-                .get(Names.URI_PATH_USER);
+                .get(ApiPathes.URI_PATH_USER);
         response.then().body("auth_msg", equalTo(""));
     }
 
@@ -39,42 +40,41 @@ public class LoginApiTest extends BaseApiTest {
                 .headers(new Login().getHeaders())
                 .cookies(cookies)
                 .formParams(Parameters.getCorrectLoginData())
-                .formParam(Names.TOKEN_NAME, csrfToken)
+                .formParam(ApiPathes.TOKEN_NAME, csrfToken)
                 .redirects().follow(false)
-                .expect().statusCode(Names.REDIRECT_CODE)
+                .expect().statusCode(HttpStatus.SC_MOVED_TEMPORARILY)
                 .when()
-                .post(Names.URI_PATH_USER_AUTHANTIFICATION);
+                .post(ApiPathes.URI_PATH_USER_AUTHANTIFICATION);
 
         Response resp2 =
-                given().
-                        cookies(Responses.getCookies(response1)).
-                        expect().
-                        statusCode(Names.ACCEPTED_CODE).
-                        when().
-                        get(Names.BASE_URL);
+                given()
+                        .cookies(Responses.getCookies(response1))
+                        .expect()
+                        .statusCode(HttpStatus.SC_OK)
+                        .when()
+                        .get(ApiPathes.BASE_URL);
         int statusCode = Responses.getStatusCode(resp2);
-        Assertions.assertEquals(statusCode, Names.ACCEPTED_CODE);
+        Assertions.assertEquals(statusCode, HttpStatus.SC_OK);
     }
 
     @Test
     public void testUserGet() {
-        RestAssured.baseURI = Names.BASE_URL;
-        Response response = when().get(Names.URI_PATH_CHECK_CSS);
+        RestAssured.baseURI = ApiPathes.BASE_URL;
+        Response response = when().get(ApiPathes.URI_PATH_CHECK_CSS);
         response.then()
                 .body("auth_msg", equalTo(""));
         int statusCode = response.statusCode();
-        Assertions.assertEquals(statusCode, Names.ACCEPTED_CODE);
+        Assertions.assertEquals(statusCode, HttpStatus.SC_OK);
     }
 
     @Test
     public void testGetUserWithAnyTparameters() {
-        RestAssured.baseURI = Names.BASE_URL;
+        RestAssured.baseURI = ApiPathes.BASE_URL;
         Response response = given()
                 .headers(new Login().getHeaders())
                 .cookies(cookies)
                 .when()
-                .get(Names.URI_PATH_USER_AUTHANTIFICATION_ADD + Names.URI_PATH_USER_AUTHANTIFICATION_ADD_ANT_T);
-        Assertions.assertEquals(response.statusCode(), Names.ERROR_CODE);
+                .get(ApiPathes.URI_PATH_USER_AUTHANTIFICATION_ADD + ApiPathes.URI_PATH_USER_AUTHANTIFICATION_ADD_ANT_T);
+        Assertions.assertEquals(response.statusCode(), HttpStatus.SC_NOT_FOUND);
     }
-
 }

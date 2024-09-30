@@ -1,6 +1,7 @@
 package by.photoshop.smelnik.ui_tests;
 
 import by.photoshop.smelnik.pageObjects.baseSettings.*;
+import by.photoshop.smelnik.pageObjects.dataForTest.LoginData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +33,6 @@ public class LoginTest extends BaseTest {
         loginPage.enterRightPassword();
         loginPage.submitLoginForm();
         Assertions.assertEquals(HomePage.BASE_URL, loginPage.returnURl());
-        Assertions.assertEquals(LoginObjectXpath.RIGHT_LOGIN, loginPage.returnLoginName());
+        Assertions.assertEquals(LoginData.RIGHT_LOGIN, loginPage.returnLoginName());
     }
 }

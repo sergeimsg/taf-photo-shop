@@ -1,8 +1,8 @@
-package by.photoshop.smelnik.pageObjects.randomDataForTest;
+package by.photoshop.smelnik.pageObjects.dataForTest;
 
 import com.github.javafaker.Faker;
 
-public class DataForTest {
+public class RandomDataForTest {
     private static Faker faker = new Faker();
 
     public static String getPassword() {

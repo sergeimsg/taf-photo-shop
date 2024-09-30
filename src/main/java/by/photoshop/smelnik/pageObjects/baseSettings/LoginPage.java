@@ -1,7 +1,8 @@
 package by.photoshop.smelnik.pageObjects.baseSettings;
 
 import by.photoshop.smelnik.driver.SingletoneDriver;
-import by.photoshop.smelnik.pageObjects.randomDataForTest.DataForTest;
+import by.photoshop.smelnik.pageObjects.dataForTest.LoginData;
+import by.photoshop.smelnik.pageObjects.dataForTest.RandomDataForTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,23 +28,23 @@ public class LoginPage {
 
     public void enterRandomLogin() {
         By loginRandomNameXpath = By.xpath(LoginObjectXpath.INPUT_LOGIN_XPATH);
-        driver.findElement(loginRandomNameXpath).sendKeys(DataForTest.getEmail());
+        driver.findElement(loginRandomNameXpath).sendKeys(RandomDataForTest.getEmail());
     }
 
     public void enterRightLogin() {
         By loginNameXpath = By.xpath(LoginObjectXpath.INPUT_LOGIN_XPATH);
         WebElement loginWebElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(loginNameXpath));
-        loginWebElement.sendKeys(LoginObjectXpath.RIGHT_LOGIN);
+        loginWebElement.sendKeys(LoginData.RIGHT_LOGIN);
     }
 
     public void enterRightPassword() {
         By passwordXpath = By.xpath(LoginObjectXpath.INPUT_PASSWORD_XPATH);
-        driver.findElement(passwordXpath).sendKeys(LoginObjectXpath.RIGHT_PASSWORD);
+        driver.findElement(passwordXpath).sendKeys(LoginData.RIGHT_PASSWORD);
     }
 
     public void enterRandomPassword() {
         By passwordXpath = By.xpath(LoginObjectXpath.INPUT_PASSWORD_XPATH);
-        driver.findElement(passwordXpath).sendKeys(DataForTest.getPassword());
+        driver.findElement(passwordXpath).sendKeys(RandomDataForTest.getPassword());
     }
 
     public void submitLoginForm() {
