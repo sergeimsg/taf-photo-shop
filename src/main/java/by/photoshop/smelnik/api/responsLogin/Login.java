@@ -6,7 +6,7 @@ import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
 public class Login {
-       public Headers getHeaders() {
+    public Headers getHeaders() {
         return new Headers(new Header(
                 "user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"),
                 new Header("content-type", "application/x-www-form-urlencoded; charset=UTF-8"),
@@ -23,5 +23,4 @@ public class Login {
                 .get(Names.URI_PATH);
         return response;
     }
-
 }

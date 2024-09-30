@@ -12,22 +12,23 @@ import java.util.Map;
 
 
 public class Responses {
-        public static String getCSRFToken(Response response){
-            Document doc = Jsoup.parse(response.asString());
-            Element metaTag =doc.select("input[name=_token]").first();
-            return metaTag !=null ? metaTag.attr("value") :"";
-        }
 
-        public static Cookies getCookies(Response response){
-            return new Cookies(
-            new Cookie.Builder("XSRF-TOKEN", response.getCookies().get("XSRF-TOKEN")).build(),
-                    new Cookie.Builder("beseller_session", response.getCookies().get("beseller_session")).build()
-                    );
-        }
+    public static String getCSRFToken(Response response) {
+        Document doc = Jsoup.parse(response.asString());
+        Element metaTag = doc.select("input[name=_token]").first();
+        return metaTag != null ? metaTag.attr("value") : "";
+    }
 
-        public static int getStatusCode(Response response){
-            return response.getStatusCode();
-        }
+    public static Cookies getCookies(Response response) {
+        return new Cookies(
+                new Cookie.Builder("XSRF-TOKEN", response.getCookies().get("XSRF-TOKEN")).build(),
+                new Cookie.Builder("beseller_session", response.getCookies().get("beseller_session")).build()
+        );
+    }
+
+    public static int getStatusCode(Response response) {
+        return response.getStatusCode();
+    }
 
 
     public static Response performPostAuthantificationRequest(Map<String, Object> formParams, String csrfToken, Cookies cookies) {

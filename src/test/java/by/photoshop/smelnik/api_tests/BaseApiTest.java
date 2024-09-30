@@ -15,7 +15,7 @@ public class BaseApiTest {
     protected Cookies cookies;
 
     @BeforeEach
-    public void getCSRF() {
+    public void getCSRFcookies() {
         Response response = new Login().performGetRequest();
         csrfToken = Responses.getCSRFToken(response);
         cookies = Responses.getCookies(response);

@@ -8,28 +8,28 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginApiTest extends BaseApiTest {
 
-
-
     @Test
-    public void testSimpleAuthentificate(){
+    public void testSimpleAuthentificate() {
         RestAssured.baseURI = Names.BASE_URL;
         Response response = given()
-                .formParams(Parameters.getCorrectLoginData())
+                .formParams(Parameters.getRandomEmailPasword())
                 .formParam("_token", csrfToken).when().post(Names.URI_PATH_USER_AUTHANTIFICATION);
         Assertions.assertEquals(response.statusCode(), Names.REDIRECT_CODE);
     }
 
     @Test
     public void testGetUserDataCheckJSON() {
-        Response response = given().baseUri(Names.BASE_URL).
-                when().
-                get(Names.URI_PATH_USER);
+        Response response = given()
+                .baseUri(Names.BASE_URL)
+                .when()
+                .get(Names.URI_PATH_USER);
         response.then().body("auth_msg", equalTo(""));
     }
 
@@ -56,7 +56,6 @@ public class LoginApiTest extends BaseApiTest {
         Assertions.assertEquals(statusCode, Names.ACCEPTED_CODE);
     }
 
-
     @Test
     public void testUserGet() {
         RestAssured.baseURI = Names.BASE_URL;
@@ -67,15 +66,14 @@ public class LoginApiTest extends BaseApiTest {
         Assertions.assertEquals(statusCode, Names.ACCEPTED_CODE);
     }
 
-
     @Test
     public void testGetUserWithAnyTparameters() {
-        RestAssured.baseURI=Names.BASE_URL;
+        RestAssured.baseURI = Names.BASE_URL;
         Response response = given()
                 .headers(new Login().getHeaders())
                 .cookies(cookies)
                 .when()
-                .get(Names.URI_PATH_USER_AUTHANTIFICATION_ADD+Names.URI_PATH_USER_AUTHANTIFICATION_ADD_ANT_T);
+                .get(Names.URI_PATH_USER_AUTHANTIFICATION_ADD + Names.URI_PATH_USER_AUTHANTIFICATION_ADD_ANT_T);
         Assertions.assertEquals(response.statusCode(), Names.ERROR_CODE);
     }
 

@@ -25,37 +25,37 @@ public class LoginPage {
         loginWindowWebElement.click();
     }
 
-    public void enterRandomLogin(){
+    public void enterRandomLogin() {
         By loginRandomNameXpath = By.xpath(LoginObjectXpath.INPUT_LOGIN_XPATH);
         driver.findElement(loginRandomNameXpath).sendKeys(DataForTest.getEmail());
     }
 
-    public void enterRightLogin(){
+    public void enterRightLogin() {
         By loginNameXpath = By.xpath(LoginObjectXpath.INPUT_LOGIN_XPATH);
         WebElement loginWebElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(loginNameXpath));
         loginWebElement.sendKeys(LoginObjectXpath.RIGHT_LOGIN);
     }
 
-    public void enterRightPassword(){
+    public void enterRightPassword() {
         By passwordXpath = By.xpath(LoginObjectXpath.INPUT_PASSWORD_XPATH);
         driver.findElement(passwordXpath).sendKeys(LoginObjectXpath.RIGHT_PASSWORD);
     }
 
-    public void enterRandomPassword(){
+    public void enterRandomPassword() {
         By passwordXpath = By.xpath(LoginObjectXpath.INPUT_PASSWORD_XPATH);
         driver.findElement(passwordXpath).sendKeys(DataForTest.getPassword());
     }
 
-    public void submitLoginForm(){
+    public void submitLoginForm() {
         By enterButtonXpath = By.xpath(LoginObjectXpath.BUTTON_ENTER_XPATH);
         driver.findElement(enterButtonXpath).submit();
     }
 
-    public String returnURl(){
+    public String returnURl() {
         return driver.getCurrentUrl();
     }
 
-    public String returnLoginName(){
+    public String returnLoginName() {
         By loginNameXPath = By.xpath(LoginObjectXpath.CHECK_LOGIN_XPATH);
         WebElement loginNameWebElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(loginNameXPath));
         return loginNameWebElement.getText();

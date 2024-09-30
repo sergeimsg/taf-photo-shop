@@ -17,17 +17,17 @@ public class SearchPage {
         this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void enterSearchQuery(){
+    public void enterSearchQuery() {
         By searchQueryNameXpath = By.xpath(SearchQueriesXPath.SEARCH_FIELD_BASE_PAGE);
         driver.findElement(searchQueryNameXpath).sendKeys(SearchQueriesNames.SEARCH_QUERY1);
     }
 
-    public void submitSearchQuery(){
+    public void submitSearchQuery() {
         By enterSearchButtonXpath = By.xpath(SearchQueriesXPath.SEARCH_BUTTON_START_BASE_PAGE);
         driver.findElement(enterSearchButtonXpath).click();
     }
 
-    public String findSearchResult1(){
+    public String findSearchResult1() {
         By searchResultXPath = By.xpath(SearchQueriesXPath.SEARCH_RESULT1);
         return driver.findElement(searchResultXPath).getText();
     }

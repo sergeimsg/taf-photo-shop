@@ -10,21 +10,21 @@ public class Parameters {
 
     protected Map<String, Object> formsToRequest = new HashMap<>();
 
-    public static Map<String, Object> getCorrectLoginData(){
-                return new FormParameters().setLogin("login").setType("email_password").setEmail("sergei-msg@tut.by").setPassword("Rapid2132").build();
-        }
+    public static Map<String, Object> getCorrectLoginData() {
+        return new FormParameters().setLogin("login").setType("email_password").setEmail("sergei-msg@tut.by").setPassword("Rapid2132").build();
+    }
 
-    public static Map<String, Object> getRandomEmailPasword(){
+    public static Map<String, Object> getRandomEmailPasword() {
         return new FormParameters().setLogin("login").setType("email_password").setEmail(faker.internet().emailAddress())
                 .setPassword(faker.internet().password(5, 10)).build();
     }
 
-    public static Map<String, Object> getAnyEmailEmptyPasword(){
+    public static Map<String, Object> getAnyEmailEmptyPasword() {
         return new FormParameters().setLogin("login").setType("email_password").setEmail(faker.internet().emailAddress())
                 .setPassword("").build();
     }
 
-    public static Map<String, Object> getEmptyEmailRandomPasword(){
+    public static Map<String, Object> getEmptyEmailRandomPasword() {
         return new FormParameters().setLogin("login").setType("email_password").setEmail("")
                 .setPassword(faker.internet().password(5, 10)).build();
     }

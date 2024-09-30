@@ -1,4 +1,5 @@
 package by.photoshop.smelnik.api.formsParameters;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -30,7 +31,6 @@ public class FormParameters {
         formParams.put("password", password);
         return this;
     }
-
 
     public Map<String, Object> build() {
         return formParams;

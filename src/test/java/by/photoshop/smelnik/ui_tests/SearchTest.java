@@ -8,10 +8,10 @@ import by.photoshop.smelnik.utils.Waiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SearchTest extends BaseTest{
+public class SearchTest extends BaseTest {
 
     @Test
-    public void testWrongLoginData(){
+    public void testWrongLoginData() {
         SearchPage searchPage = new SearchPage();
         CookiePage cookiePage = new CookiePage();
         cookiePage.rejectCookieWindow();
@@ -22,5 +22,4 @@ public class SearchTest extends BaseTest{
         Waiter.wait(4);
         Assertions.assertEquals(SearchQueriesNames.SEARCH_RESULT1, searchPage.findSearchResult1());
     }
-
 }

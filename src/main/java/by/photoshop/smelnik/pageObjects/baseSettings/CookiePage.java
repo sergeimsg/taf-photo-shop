@@ -19,10 +19,10 @@ public class CookiePage {
         this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    public void rejectCookieWindow(){
+    public void rejectCookieWindow() {
         By byCookieRejectXPath = By.xpath(CookieXPath.COOKIE_CLOSE_XPATH);
         Waiter.wait(2);
-        if (driver.findElement(byCookieRejectXPath).isDisplayed()){
+        if (driver.findElement(byCookieRejectXPath).isDisplayed()) {
             WebElement cookieWebElementRejectWindow = webDriverWait.until(ExpectedConditions.elementToBeClickable(byCookieRejectXPath));
             cookieWebElementRejectWindow.click();
         }

@@ -12,8 +12,4 @@ public class Names {
     public static final int REDIRECT_CODE = 302;
     public static final int ACCEPTED_CODE = 200;
     public static final int ERROR_CODE = 404;
-
-
-
-
 }

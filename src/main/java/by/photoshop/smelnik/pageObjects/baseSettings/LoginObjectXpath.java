@@ -8,8 +8,4 @@ public class LoginObjectXpath {
     public static final String RIGHT_PASSWORD = "rapid2132";
     public static final String BUTTON_ENTER_XPATH = "//div[@class='ok-form-row']/button[contains(text(), 'Войти')]";
     public static final String CHECK_LOGIN_XPATH = "//span[text()='sergei-msg@tut.by']";
-
-
-
-
 }

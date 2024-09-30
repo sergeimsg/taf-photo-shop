@@ -19,10 +19,10 @@ public class PopUpPage {
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
-    public void closePopUp(){
+    public void closePopUp() {
         By popUpWindowXPath = By.xpath(PopUpWindowXpath.CLOSE_POPUP_WINDOW);
         Waiter.wait(2);
-        if (driver.findElement(popUpWindowXPath).isDisplayed()){
+        if (driver.findElement(popUpWindowXPath).isDisplayed()) {
             WebElement popUpWindowWebElement = webDriverWait.until(ExpectedConditions.elementToBeClickable(popUpWindowXPath));
             popUpWindowWebElement.click();
         }

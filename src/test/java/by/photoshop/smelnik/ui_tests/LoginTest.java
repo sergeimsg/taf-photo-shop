@@ -4,11 +4,10 @@ import by.photoshop.smelnik.pageObjects.baseSettings.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class LoginTest extends BaseTest{
-
+public class LoginTest extends BaseTest {
 
     @Test
-    public void testWrongLoginData(){
+    public void testWrongLoginData() {
         LoginPage loginPage = new LoginPage();
         CookiePage cookiePage = new CookiePage();
         cookiePage.rejectCookieWindow();
@@ -22,7 +21,7 @@ public class LoginTest extends BaseTest{
     }
 
     @Test
-    public void testCorrectLoginData(){
+    public void testCorrectLoginData() {
         LoginPage loginPage = new LoginPage();
         CookiePage cookiePage = new CookiePage();
         cookiePage.rejectCookieWindow();
@@ -35,5 +34,4 @@ public class LoginTest extends BaseTest{
         Assertions.assertEquals(HomePage.BASE_URL, loginPage.returnURl());
         Assertions.assertEquals(LoginObjectXpath.RIGHT_LOGIN, loginPage.returnLoginName());
     }
-
 }
