@@ -1,7 +1,8 @@
-package by.photoshop.smelnik.pageObjects;
+package by.photoshop.smelnik.ui.pages.cookies;
 
-import by.photoshop.smelnik.driver.SingletoneDriver;
-import by.photoshop.smelnik.utils.Waiter;
+import by.photoshop.smelnik.ui.data.DelayAndLength;
+import by.photoshop.smelnik.ui.driver.SingletoneDriver;
+import by.photoshop.smelnik.ui.utils.Waiter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,13 +17,13 @@ public class CookiePage {
 
     public CookiePage() {
         this.driver = SingletoneDriver.getDriver();
-        this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        this.webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(DelayAndLength.DEFAULT_DURATION));
     }
 
-    public void rejectCookieWindow(){
+    public void rejectCookieWindow() {
         By byCookieRejectXPath = By.xpath(CookieXPath.COOKIE_CLOSE_XPATH);
-        Waiter.wait(2);
-        if (driver.findElement(byCookieRejectXPath).isDisplayed()){
+        Waiter.wait(DelayAndLength.MIN_DURATION);
+        if (driver.findElement(byCookieRejectXPath).isDisplayed()) {
             WebElement cookieWebElementRejectWindow = webDriverWait.until(ExpectedConditions.elementToBeClickable(byCookieRejectXPath));
             cookieWebElementRejectWindow.click();
         }
